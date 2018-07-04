@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	  
+<head>
+	
+	 <!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+	
+	<link rel="stylesheet" href="style/styleCss.css"/>
+
+      <!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		
+	<title>Nova Forma</title>
+</head>
+<body>
+	<header>
+		<nav>
+		    <div class="nav-wrapper">
+		    	<a href="#" class="brand-logo">Academia</a>
+		      		<ul id="nav-mobile" class="right hide-on-med-and-down">
+		        		<li><a class="waves-effect waves-light btn" href="/academias"><i class="material-icons left">list</i>Academias</a></li>
+		      		</ul>
+		    </div>
+  		</nav>
+	</header>
+	
+	<div th:each="academia : ${academia}" class="container detalhesAcademia">
+		<div class="row">
+			<div class="inpput-field col s12">
+				<p><h3><center><span th:text="${academia.nome}"></span></center></h3></p>
+			</div>
+			<p>Proprietario: <span th:text="${academia.proprietario}"></span></p>
+			<p>Bairro: <span th:text="${academia.bairro}"></span></p>
+			
+		</div>
+	</div>
+	<div class="container formCliente">
+		<h4><center>Cadastro Cliente</center></h4>
+		<hr/>
+		<br/>
+		<th:block th:include="mensagemValidacao"></th:block>
+		
+		<form method="post" th:object="${cliente}">
+			Nome:<input type="text" value="" placeholder="Nome do cliente" name="nome"/>
+			CPF:<input type="text" value="" placeholder="EX: 000.000.000-00" name="cpf"/>
+			Telefone:<input type="text" value="" placeholder="(00) 0 0000-0000" name="telefone"/>
+			
+			<button class="waves-effect waves-light btn" type="submit">Adicionar</button>
+		</form>
+	</div>
+	<div class="container detalhesAcademia">
+		<h4><center>Clientes</center></h4>
+		<hr/>
+		<br/>
+		<table class="container">
+			<thead>
+				<tr>
+					<th>Nome Cliente</th>
+					<th>CPF</th>
+					<th>Telefone</th>
+					<th>Deletar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cliente : ${clientes}">
+					<td><th:href="${(#mvc.url('CC#cadastraFichaExercicio').arg(0, cliente.id)).build()}"><span th:text="${cliente.nome}"></span></td>
+					<td><span th:text="${cliente.cpf}"></span></td>
+					<td><span th:text="${cliente.telefone}"></span></td>
+					<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('AC#deletarCliente').arg(0, cliente.matricula)).build()}"><i class="material-icons left">delete</i></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!--JavaScript at end of body for optimized loading-->
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+
+</html>

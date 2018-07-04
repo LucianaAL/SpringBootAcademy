@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	  
+<head>
+	
+	 <!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+	<link rel="stylesheet" href="style/styleCss.css"/>
+      <!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		
+	<title>Nova Forma</title>
+</head>
+<body>
+	
+	<header>
+		<nav>
+		    <div class="nav-wrapper">
+		    	<a href="#" class="brand-logo">Academias Cadastradas</a>
+		      		<ul id="nav-mobile" class="right hide-on-med-and-down">
+		        		<li><a class="waves-effect waves-light btn" href="/cadastrarAcademia"><i class="material-icons left">add_circle_outline</i>Cadastrar Academia</a></li>
+		      		</ul>
+		    </div>
+  		</nav>
+	</header>
+	<div class="container tabelaAcademias">
+		<table class="container">
+			<thead>
+				<th>Nome</th>
+				<th>Proprietario</th>
+				<th>Bairro</th>
+				<th>Deletar</th>
+			</thead>
+			<tbody>
+				<tr th:each="academia : ${academias}">
+					<td><a th:href="${(#mvc.url('AC#detalhesAcademia').arg(0, academia.id)).build()}"><span th:text="${academia.nome}"></span></a></td>
+					<td><span th:text="${academia.proprietario}"></span></td>
+					<td><span th:text="${academia.bairro}"></span></td>
+					<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('AC#deletarAcademia').arg(0, academia.id)).build()}"><i class="material-icons left">delete</i></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!--JavaScript at end of body for optimized loading-->
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	  
+<head>
+	
+	 <!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+	
+	<link rel="stylesheet" href="style/styleCss.css"/>
+
+      <!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		
+	<title>Nova Forma</title>
+</head>
+<body>
+	<header>
+		<nav>
+		    <div class="nav-wrapper">
+		    	<a href="#" class="brand-logo">Detalhes Cliente</a>
+		      		<ul id="nav-mobile" class="right hide-on-med-and-down">
+		        		<li><a class="waves-effect waves-light btn" href="/academias"><i class="material-icons left">list</i>Academias</a></li>
+		      		</ul>
+		    </div>
+  		</nav>
+	</header>
+	<div class="container formCliente">
+		<h4><center>Cadastro Ficha de Exercicio</center></h4>
+		<hr/>
+		<br/>
+		<th:block th:include="mensagemValidacao"></th:block>
+		<form method="post" th:object="${fichaExercicio}">
+			<div class="row">
+				<div class="inpput-field col s12">
+					Atividade:<input type="text" value="" placeholder="Nome do Exercicio" name="nome"/>
+				</div>
+				<div class="inpput-field col s6">
+					Quantidade:<input type="number" value="" placeholder="Quantidade do exercicio" name="cpf"/>
+				</div>
+				<div class="inpput-field col s6">
+					Data:<input type="date" value="" placeholder="" name="telefone"/>
+				</div>
+			</div>
+			
+			<button class="waves-effect waves-light btn" type="submit">Adicionar</button>
+		</form>
+	</div>
+	
+	<!--JavaScript at end of body for optimized loading-->
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	  
+<head>
+	 <!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+	<link rel="stylesheet" href="style/styleCss.css"/>
+      <!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+	<title>Nova Forma</title>
+</head>
+
+<body>
+
+	<header>
+		<nav>
+		    <div class="nav-wrapper">
+		    	<a href="#" class="brand-logo">Cadastrar Academia</a>
+		      		<ul id="nav-mobile" class="right hide-on-med-and-down">
+		        		<li><a class="waves-effect waves-light btn" href="/academias"><i class="material-icons left">list</i>Academias</a></li>
+		      		</ul>
+		    </div>
+  		</nav>
+	</header>
+	<div class="container formAcademia">
+		<form class="container" method="post">
+			<div class="row">
+				<div class="inpput-field col s6">
+					Nome: <input type="text" value="" placeholder="Nome da academia" name="nome">
+				</div>
+				<div class="inpput-field col s6">
+					Bairro: <input type="text" value="" placeholder="Bairro da academia" name="bairro">
+				</div>
+				<div class="inpput-field col s12">
+					Proprietario: <input type="text" value="" placeholder="Proprietario da academia" name="proprietario">
+				</div>
+				
+			</div>
+			<button type="submit" class="waves-effect waves-light btn">Salvar</button>
+		</form>
+	</div>
+	
+	
+	
+	<!--JavaScript at end of body for optimized loading-->
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+
+</html>
